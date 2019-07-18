@@ -6,11 +6,10 @@ import { decrypt } from "../../services/crypto";
 import { Creators as AuthActions } from "../ducks/auth";
 
 export function* signIn(data) {
-  const { email, password } = data.payload;
+  const { user, password } = data.payload;
   try {
-    const response = yield call(api.post, "auth", { email, password });
+    const response = yield call(api.post, "auth", { user, password });
     const data = yield call(decrypt, response.data.token);
-
     yield put(AuthActions.signInSuccess({ token: response.data.token, isCoreTeam: data.isCoreTeam }));
   } catch (err) {
     yield put(AuthActions.signInFailure(err));

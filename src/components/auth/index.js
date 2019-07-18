@@ -20,7 +20,7 @@ class Auth extends Component {
   };
 
   state = {
-    email: "",
+    user: "",
     password: ""
   };
 
@@ -37,10 +37,10 @@ class Auth extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    const { email, password } = this.state;
+    const { user, password } = this.state;
     const { signInRequest } = this.props;
 
-    signInRequest({ email, password });
+    signInRequest({ user, password });
   };
 
   handleInputChange = event => {
@@ -48,27 +48,27 @@ class Auth extends Component {
   };
 
   render() {
-    const { email, password } = this.state;
+    const { user, password } = this.state;
 
     return (
       <Modal onClick={this.props.action}>
         <Form onSubmit={this.handleSubmit} onClick={e => e.stopPropagation()}>
           <h1>Olá, impulser!</h1>
-          <span>Email do Rocket.Chat</span>
+          <span>Usuário do Rocket.Chat</span>
           <input
-            type="email"
-            name="email"
-            value={email}
-            onChange={event => this.handleInputChange(event)}
+            type="text"
+            name="user"
+            value={user}
+            onChange={this.handleInputChange}
           />
           <span>Senha</span>
           <input
             type="password"
             name="password"
             value={password}
-            onChange={event => this.handleInputChange(event)}
+            onChange={this.handleInputChange}
           />
-          <Button>Logar</Button>
+          <Button type="submit">Logar</Button>
           <p className="or">- ou -</p>
           <LinkedinButton>
             <LinkedIn

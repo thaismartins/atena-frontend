@@ -15,9 +15,9 @@ class Menu extends Component {
   static propTypes = {
     auth: PropTypes.shape({
       loading: PropTypes.bool,
-      error: PropTypes.oneOfType([null, PropTypes.string]),
+      error: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
       isCoreTeam: PropTypes.bool,
-      token: PropTypes.string
+      token: PropTypes.oneOfType([PropTypes.string, PropTypes.bool])
     }).isRequired,
     signOut: PropTypes.func.isRequired
   };
@@ -32,6 +32,7 @@ class Menu extends Component {
 
   render() {
     const { auth, signOut } = this.props;
+    console.log('this.props', this.props)
 
     return (
       <>

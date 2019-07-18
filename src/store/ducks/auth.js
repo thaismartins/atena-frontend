@@ -1,6 +1,6 @@
 const INITIAL_STATE = {
   loading: false,
-  error: null,
+  error: false,
   token: localStorage.getItem("@at:atpin") || false,
   isCoreTeam: false
 };
@@ -29,7 +29,7 @@ export default function auth(state = INITIAL_STATE, action) {
       return {
         ...state,
         loading: false,
-        error: action.payload
+        error: action.payload.message
       };
     case Types.SIGN_OUT:
       return {
@@ -43,9 +43,9 @@ export default function auth(state = INITIAL_STATE, action) {
 }
 
 export const Creators = {
-  signInRequest: ({ email, password }) => ({
+  signInRequest: ({ user, password }) => ({
     type: Types.SIGN_IN_REQUEST,
-    payload: { email, password }
+    payload: { user, password }
   }),
   signInLinkedinRequest: ({ code }) => ({
     type: Types.SIGN_IN_LINKEDIN_REQUEST,
