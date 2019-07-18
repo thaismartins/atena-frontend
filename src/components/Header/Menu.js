@@ -32,7 +32,6 @@ class Menu extends Component {
 
   render() {
     const { auth, signOut } = this.props;
-    console.log('this.props', this.props)
 
     return (
       <>
