@@ -11,10 +11,13 @@ import Auth from "../auth";
 import mock from "../../assets/mock.jpeg";
 
 class Menu extends Component {
+
   static propTypes = {
     auth: PropTypes.shape({
       loading: PropTypes.bool,
-      error: PropTypes.string
+      error: PropTypes.oneOfType([null, PropTypes.string]),
+      isCoreTeam: PropTypes.bool,
+      token: PropTypes.string
     }).isRequired,
     signOut: PropTypes.func.isRequired
   };

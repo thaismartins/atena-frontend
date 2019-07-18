@@ -7,7 +7,7 @@ import { Types as ExperienceCardTypes } from "../ducks/experienceCard";
 import { Types as EditAchievementsTypes } from "../ducks/editAchievements";
 
 import { getRanking } from "./ranking";
-import { signIn, logout } from "./auth";
+import { signIn, signInLinkedin, signInSuccess, signInFailure, logout } from "./auth";
 import {
   getUsers,
   getUsersAchievements,
@@ -21,6 +21,9 @@ import { getAchievements, putAchievements } from "./editAchievements";
 export default function* rootSaga() {
   yield all([
     takeLatest(AuthTypes.SIGN_IN_REQUEST, signIn),
+    takeLatest(AuthTypes.SIGN_IN_LINKEDIN_REQUEST, signInLinkedin),
+    takeLatest(AuthTypes.SIGN_IN_SUCCESS, signInSuccess),
+    takeLatest(AuthTypes.SIGN_IN_FAILURE, signInFailure),
     takeLatest(AuthTypes.SIGN_OUT, logout),
     takeLatest(RankingTypes.GET_RANKING, getRanking),
     takeLatest(GeneralReportsTypes.GET_USERS, getUsers),

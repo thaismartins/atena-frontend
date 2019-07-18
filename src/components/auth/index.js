@@ -2,27 +2,45 @@ import React, { Component } from "react";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
+import { LinkedIn } from 'react-linkedin-login-oauth2';
 
 import { Creators as AuthActions } from "../../store/ducks/auth";
 
-import { Modal, Form, Button } from "./styles";
+import { Modal, Form, Button, LinkedinButton } from "./styles";
+
+const clientId = process.env.REACT_APP_LINKEDIN_KEY;
+const callbackUrl = process.env.REACT_APP_LINKEDIN_URL_CALLBACK;
 
 class Auth extends Component {
+
   static propTypes = {
     action: PropTypes.func.isRequired,
-    signInRequest: PropTypes.func.isRequired
+    signInRequest: PropTypes.func.isRequired,
+    signInLinkedinRequest: PropTypes.func.isRequired
   };
+
   state = {
-    rocketId: "",
+    email: "",
     password: ""
   };
 
+  handleLinkedinSuccess = (data) => {
+    const { code } = data;
+    const { signInLinkedinRequest } = this.props;
+
+    signInLinkedinRequest({ code });
+  }
+
+  handleLinkedinFailure = (error) => {
+    // TODO: send alert error
+  }
+
   handleSubmit = event => {
     event.preventDefault();
-    const { rocketId, password } = this.state;
+    const { email, password } = this.state;
     const { signInRequest } = this.props;
 
-    signInRequest({ rocketId, password });
+    signInRequest({ email, password });
   };
 
   handleInputChange = event => {
@@ -30,16 +48,17 @@ class Auth extends Component {
   };
 
   render() {
-    const { rocketId, password } = this.state;
+    const { email, password } = this.state;
+
     return (
       <Modal onClick={this.props.action}>
         <Form onSubmit={this.handleSubmit} onClick={e => e.stopPropagation()}>
-          <h1>Ola, impulser!</h1>
-          <span>RocketId</span>
+          <h1>Olá, impulser!</h1>
+          <span>Email do Rocket.Chat</span>
           <input
-            type="text"
-            name="rocketId"
-            value={rocketId}
+            type="email"
+            name="email"
+            value={email}
             onChange={event => this.handleInputChange(event)}
           />
           <span>Senha</span>
@@ -49,7 +68,20 @@ class Auth extends Component {
             value={password}
             onChange={event => this.handleInputChange(event)}
           />
-          <Button>login</Button>
+          <Button>Logar</Button>
+          <p className="or">- ou -</p>
+          <LinkedinButton>
+            <LinkedIn
+              className="bt-linkedin"
+              clientId={clientId}
+              onFailure={this.handleLinkedinFailure}
+              onSuccess={this.handleLinkedinSuccess}
+              redirectUri={callbackUrl}
+              scope="r_liteprofile"
+            >
+              Logar com <img src="/linkedin-icon.png" alt="Linkedin" title="Linkedin" />
+            </LinkedIn>
+          </LinkedinButton>
         </Form>
       </Modal>
     );

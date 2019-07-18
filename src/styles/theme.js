@@ -27,7 +27,9 @@ const Theme = {
     primaryFocus: "#414287",
     secondary: "#DC3C2C",
     bg: "#FDFDFD",
-    green: "#279949"
+    green: "#279949",
+    linkedin: "#1061AC",
+    linkedinHover: "#007bb7"
   }
 };
 
