@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
 
 import { Creators as EditAchievementsActions } from "../../../store/ducks/editAchievements";
 import { bindActionCreators } from "redux";

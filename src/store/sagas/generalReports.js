@@ -1,5 +1,5 @@
-import { call, put } from "redux-saga/effects";
-import api from "../../services/api";
+import { put } from "redux-saga/effects";
+// import api from "../../services/api";
 import { Creators as GeneralReportsActions } from "../ducks/generalReports";
 
 export function* getUsers(action) {
