@@ -1,0 +1,10 @@
+{
+    "ignore": ["node_modules/*"],
+    "watch": [
+        ".env",
+        "app.json",
+        "package.json",
+        "src/**/*.*"
+    ],
+    "ext": "js,json,html"
+  }
