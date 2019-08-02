@@ -3,7 +3,7 @@ import { Provider } from "react-redux";
 import { ToastContainer } from "react-toastify";
 import "./config/ReactotronConfig";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import { LinkedInPopUp } from 'react-linkedin-login-oauth2';
+import { LinkedInPopUp } from "react-linkedin-login-oauth2";
 
 import store from "./store";
 import StyledApp from "./styles/global";
@@ -20,7 +20,7 @@ import Footer from "./components/Footer";
 import Header from "./components/Header";
 
 function App() {
-  const { token, isCoreTeam } = store.getState().auth
+  const { token, isCoreTeam } = store.getState().auth;
 
   return (
     <Provider store={store}>
@@ -41,7 +41,6 @@ function App() {
               <Route path="/userInfo" component={UserInfo} />
             </>
           )}
-
         </Switch>
         <Footer />
         <ToastContainer autoClose={2000} />

@@ -38,8 +38,7 @@ class Admin extends Component {
           <Option
             key={option.key}
             active={active === option.key}
-            onClick={() => this.handleClick(option.key)}
-          >
+            onClick={() => this.handleClick(option.key)}>
             {option.name}
           </Option>
         ))}
@@ -59,16 +58,14 @@ class Admin extends Component {
                 marginLeft="15px"
                 key="editAchievements"
                 active={achievementsType === "editAchievements"}
-                onClick={() => this.handleClick("editAchievements")}
-              >
+                onClick={() => this.handleClick("editAchievements")}>
                 Editar
               </Option>
               <Option
                 marginLeft="15px"
                 key="createAchievements"
                 active={achievementsType === "createAchievements"}
-                onClick={() => this.handleClick("createAchievements")}
-              >
+                onClick={() => this.handleClick("createAchievements")}>
                 Criar
               </Option>
             </>
@@ -78,8 +75,7 @@ class Admin extends Component {
           <Option
             key="players"
             active={active === "players"}
-            onClick={() => this.handleClick("players")}
-          >
+            onClick={() => this.handleClick("players")}>
             Informações do jogador
           </Option>
         </Aside>

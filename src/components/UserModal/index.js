@@ -129,8 +129,7 @@ class UserModal extends Component {
             <ButtonWrapper>
               <Button
                 disabled={slackUser.score === -1}
-                onClick={this.transferScore}
-              >
+                onClick={this.transferScore}>
                 {slackUser.score === -1 ? "sucesso" : "transferir"}
               </Button>
               <Button onClick={() => closeModal(true)} gray>

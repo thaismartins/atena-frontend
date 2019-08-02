@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { LinkedIn } from 'react-linkedin-login-oauth2';
+import { LinkedIn } from "react-linkedin-login-oauth2";
 
 import { Creators as AuthActions } from "../../store/ducks/auth";
 
@@ -12,7 +12,6 @@ const clientId = process.env.REACT_APP_LINKEDIN_KEY;
 const callbackUrl = process.env.REACT_APP_LINKEDIN_URL_CALLBACK;
 
 class Auth extends Component {
-
   static propTypes = {
     action: PropTypes.func.isRequired,
     signInRequest: PropTypes.func.isRequired,
@@ -24,16 +23,16 @@ class Auth extends Component {
     password: ""
   };
 
-  handleLinkedinSuccess = (data) => {
+  handleLinkedinSuccess = data => {
     const { code } = data;
     const { signInLinkedinRequest } = this.props;
 
     signInLinkedinRequest({ code });
-  }
+  };
 
-  handleLinkedinFailure = (error) => {
+  handleLinkedinFailure = error => {
     // TODO: send alert error
-  }
+  };
 
   handleSubmit = event => {
     event.preventDefault();
@@ -77,9 +76,9 @@ class Auth extends Component {
               onFailure={this.handleLinkedinFailure}
               onSuccess={this.handleLinkedinSuccess}
               redirectUri={callbackUrl}
-              scope="r_liteprofile"
-            >
-              Logar com <img src="/linkedin-icon.png" alt="Linkedin" title="Linkedin" />
+              scope="r_liteprofile">
+              Logar com{" "}
+              <img src="/linkedin-icon.png" alt="Linkedin" title="Linkedin" />
             </LinkedIn>
           </LinkedinButton>
         </Form>

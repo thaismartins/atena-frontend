@@ -41,8 +41,7 @@ export const PageLoading = ({ paddingSize, imgSize, width, height }) => (
     width={width}
     height={height}
     paddingSize={paddingSize}
-    imgSize={imgSize}
-  >
+    imgSize={imgSize}>
     <img src={loading} alt="" />
   </Loading>
 );

@@ -16,6 +16,6 @@ FullPage.propTypes = {
 
 FullPage.defaultProps = {
   height: 100
-}
+};
 
 export default FullPage;

@@ -40,8 +40,7 @@ class XpRules extends Component {
               onClick={() => this.changeInfos("gain")}
               className={`${
                 selected === "gain" ? "selected" : ""
-              } a--rules--button`}
-            >
+              } a--rules--button`}>
               <span>01. Obtendo XP</span>
             </button>
           </Box>
@@ -50,8 +49,7 @@ class XpRules extends Component {
               onClick={() => this.changeInfos("losing")}
               className={`${
                 selected === "losing" ? "selected" : ""
-              } a--rules--button`}
-            >
+              } a--rules--button`}>
               <span>02. Perdendo XP</span>
             </button>
           </Box>
@@ -60,8 +58,7 @@ class XpRules extends Component {
               onClick={() => this.changeInfos("exeptions")}
               className={`${
                 selected === "exeptions" ? "selected" : ""
-              } a--rules--button`}
-            >
+              } a--rules--button`}>
               <span>03. Exceções</span>
             </button>
           </Box>
@@ -72,8 +69,7 @@ class XpRules extends Component {
             className={`rules__inner rules__inner-1 ${
               selected === "gain" ? "selected" : ""
             } `}
-            flexWrap="wrap"
-          >
+            flexWrap="wrap">
             <Box width={[1, 1 / 2]} px={30}>
               <Title>
                 <span className="red">01.</span>
@@ -108,8 +104,7 @@ class XpRules extends Component {
                 <a
                   href="https://www.notion.so/XP-Como-ganhar-372bc91f3e404b418b50267ddcadce6f"
                   target="_blank"
-                  rel="noopener noreferrer"
-                >
+                  rel="noopener noreferrer">
                   mais detalhes
                 </a>
               </Button>
@@ -121,8 +116,7 @@ class XpRules extends Component {
             className={`rules__inner rules__inner-2 ${
               selected === "losing" ? "selected" : ""
             } `}
-            flexWrap="wrap"
-          >
+            flexWrap="wrap">
             <Box width={[1, 1 / 2]} px={30}>
               <Title>
                 <span className="red">02.</span>
@@ -145,8 +139,7 @@ class XpRules extends Component {
             className={`rules__inner rules__inner-3 ${
               selected === "exeptions" ? "selected" : ""
             } `}
-            flexWrap="wrap"
-          >
+            flexWrap="wrap">
             <Box width={[1, 1 / 2]} px={30}>
               <Title>
                 <span className="red">03.</span>

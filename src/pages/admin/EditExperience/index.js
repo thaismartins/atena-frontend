@@ -45,8 +45,7 @@ class EditExperience extends Component {
                 <Field
                   name={value.key}
                   validate={this.validate}
-                  initialValue={value.initialValue}
-                >
+                  initialValue={value.initialValue}>
                   {({ input, meta }) => (
                     <StyledInput
                       error={meta.touched && meta.error}

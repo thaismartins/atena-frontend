@@ -149,8 +149,7 @@ class CreateAchievements extends Component {
     return (
       <Formik
         onSubmit={(values, actions) => this.handleSubmit(values, actions)}
-        initialValues={this.getValues()}
-      >
+        initialValues={this.getValues()}>
         {({ handleSubmit, handleChange, setFieldValue, errors, touched }) => (
           <StyledForm onSubmit={handleSubmit}>
             <h3>Criar nova conquista</h3>

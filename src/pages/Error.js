@@ -20,9 +20,7 @@ class ScreenError extends Component {
                 <Title large color="white" align="center">
                   404
                 </Title>
-                <SubTitle>
-                  Ops! Página não encontrada :/
-                </SubTitle>
+                <SubTitle>Ops! Página não encontrada :/</SubTitle>
               </Box>
             </Flex>
           </FullPage>

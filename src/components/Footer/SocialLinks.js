@@ -31,8 +31,7 @@ const renderLinks = () =>
         href={item.link}
         className={`fab fa-${item.icon}`}
         target="_blank"
-        rel="noopener noreferrer"
-      >
+        rel="noopener noreferrer">
         <img src="" alt="" />
       </a>
     </li>

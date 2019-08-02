@@ -10,7 +10,12 @@ export function* signIn(data) {
   try {
     const response = yield call(api.post, "auth", { user, password });
     const data = yield call(decrypt, response.data.token);
-    yield put(AuthActions.signInSuccess({ token: response.data.token, isCoreTeam: data.isCoreTeam }));
+    yield put(
+      AuthActions.signInSuccess({
+        token: response.data.token,
+        isCoreTeam: data.isCoreTeam
+      })
+    );
   } catch (err) {
     yield put(AuthActions.signInFailure(err));
   }
@@ -21,7 +26,12 @@ export function* signInLinkedin(data) {
   try {
     const response = yield call(api.post, "auth/linkedin", { code });
     const data = yield call(decrypt, response.data.token);
-    yield put(AuthActions.signInSuccess({ token: response.data.token, isCoreTeam: data.isCoreTeam }));
+    yield put(
+      AuthActions.signInSuccess({
+        token: response.data.token,
+        isCoreTeam: data.isCoreTeam
+      })
+    );
   } catch (err) {
     yield put(AuthActions.signInFailure(err));
   }
@@ -30,7 +40,7 @@ export function* signInLinkedin(data) {
 export function signInFailure(data) {
   const { type, message } = data.payload;
   // TODO: send alert error
-  console.log('Erro ao logar', type, message);
+  console.log("Erro ao logar", type, message);
 }
 
 export function signInSuccess(data) {

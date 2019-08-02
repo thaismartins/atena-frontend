@@ -10,7 +10,6 @@ const StyledScreenGithub = styled.section`
     font-size: 20px;
     line-height: 1.5;
     font-family: ${props => props.theme.fontFamily.primary};
-
   }
 
   .super {
@@ -29,7 +28,7 @@ const StyledScreenGithub = styled.section`
     color: ${props => props.theme.color.white};
     text-align: center;
     margin: 60px auto 0;
-     flex: 1;
+    flex: 1;
 
     a {
       color: ${props => props.theme.color.primaryHover};
@@ -54,7 +53,7 @@ const StyledScreenGithub = styled.section`
 
   ._inner {
     flex: 1;
-    max-height: 590px
+    max-height: 590px;
   }
 
   ._inner > p {

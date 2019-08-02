@@ -7,7 +7,13 @@ import { Types as ExperienceCardTypes } from "../ducks/experienceCard";
 import { Types as achievementsTypes } from "../ducks/achievements";
 
 import { getRanking, getUserInfo } from "./ranking";
-import { signIn, signInLinkedin, signInSuccess, signInFailure, logout } from "./auth";
+import {
+  signIn,
+  signInLinkedin,
+  signInSuccess,
+  signInFailure,
+  logout
+} from "./auth";
 
 import {
   getUsers,

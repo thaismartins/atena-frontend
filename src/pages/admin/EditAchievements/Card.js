@@ -73,8 +73,7 @@ class EditAchievements extends Component {
                     <Field
                       name={tier.name}
                       validate={this.validate}
-                      initialValue={tier.value}
-                    >
+                      initialValue={tier.value}>
                       {({ input, meta }) => (
                         <StyledInput
                           error={meta.touched && meta.error}

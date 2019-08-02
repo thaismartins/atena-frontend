@@ -75,21 +75,18 @@ class ScreenRanking extends Component {
                 justifyContent="center"
                 alignItems="center"
                 mt={100}
-                mb={100}
-              >
+                mb={100}>
                 <StyledRectangleGroup>
                   <StyledRectangle
                     onClick={() => this.toggleRanking("monthly")}
                     active={selected === "monthly"}
-                    left
-                  >
+                    left>
                     <p>Ranking Mensal</p>
                   </StyledRectangle>
                   <StyledRectangle
                     onClick={() => this.toggleRanking("general")}
                     active={selected === "general"}
-                    right
-                  >
+                    right>
                     <p>Ranking Geral</p>
                   </StyledRectangle>
                 </StyledRectangleGroup>
@@ -122,8 +119,7 @@ class ScreenRanking extends Component {
                     mt={50}
                     mb={80}
                     ml={172}
-                    mr={172}
-                  >
+                    mr={172}>
                     {ranking.firstUsers.map((card, index) => (
                       <UserCard
                         key={index}
@@ -138,8 +134,7 @@ class ScreenRanking extends Component {
                     mb={50}
                     ml={172}
                     mr={172}
-                    flexWrap="wrap"
-                  >
+                    flexWrap="wrap">
                     <RankingHeader>
                       <div className="ranking">RANKING</div>
                       <div className="userInfo" />

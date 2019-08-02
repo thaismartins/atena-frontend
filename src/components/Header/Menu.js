@@ -11,7 +11,6 @@ import Auth from "../auth";
 import mock from "../../assets/mock.jpeg";
 
 class Menu extends Component {
-
   static propTypes = {
     auth: PropTypes.shape({
       loading: PropTypes.bool,

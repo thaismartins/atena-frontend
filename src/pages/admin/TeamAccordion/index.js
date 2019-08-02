@@ -84,8 +84,7 @@ class TeamAccordion extends Component {
           return (
             <AccordionWrapper
               onClick={() => this.handleClick(index)}
-              key={index}
-            >
+              key={index}>
               <Header>
                 <p>{name}</p>
                 <h1>
