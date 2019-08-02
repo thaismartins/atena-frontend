@@ -1,17 +1,17 @@
-import React from "react";
+import React from 'react'
 
-import badge from "../../assets/badge.svg";
-import stars from "../../assets/stars.svg";
+import badge from '../../assets/badge.svg'
+import stars from '../../assets/stars.svg'
 
-import Card from "../Card";
-import { Flex, Box } from "@rebass/grid";
-import Title from "../Title";
-import Button from "../Button";
+import Card from '../Card'
+import { Flex, Box } from '@rebass/grid'
+import Title from '../Title'
+import Button from '../Button'
 
 const QuestionCards = () => {
   return (
     <section className="container cards">
-      <Flex css={{ margin: "0 -25px" }} flexWrap="wrap">
+      <Flex css={{ margin: '0 -25px' }} flexWrap="wrap">
         <Box width={[1, 1 / 2]} px={25}>
           <Card>
             <img alt="estrelas" src={stars} />
@@ -39,13 +39,13 @@ const QuestionCards = () => {
           width={[1, 1 / 2]}
           px={25}
           css={{
-            display: "flex",
-            flexDirection: "column"
+            display: 'flex',
+            flexDirection: 'column'
           }}>
           <Card>
             <img alt="badge" src={badge} />
             <Title>
-              O QUE SÃO E <br /> COMO GANHAR <br />{" "}
+              O QUE SÃO E <br /> COMO GANHAR <br />{' '}
               <span className="red">CONQUISTAS</span>?
             </Title>
             <p className="super">
@@ -66,7 +66,7 @@ const QuestionCards = () => {
         </Box>
       </Flex>
     </section>
-  );
-};
+  )
+}
 
-export default QuestionCards;
+export default QuestionCards

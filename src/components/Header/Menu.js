@@ -1,14 +1,14 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 
-import { Creators as AuthActions } from "../../store/ducks/auth";
+import { Creators as AuthActions } from '../../store/ducks/auth'
 
-import StyledMenu from "./Menu.style";
-import { Link } from "react-router-dom";
-import Auth from "../auth";
-import mock from "../../assets/mock.jpeg";
+import StyledMenu from './Menu.style'
+import { Link } from 'react-router-dom'
+import Auth from '../auth'
+import mock from '../../assets/mock.jpeg'
 
 class Menu extends Component {
   static propTypes = {
@@ -19,18 +19,18 @@ class Menu extends Component {
       token: PropTypes.oneOfType([PropTypes.string, PropTypes.bool])
     }).isRequired,
     signOut: PropTypes.func.isRequired
-  };
+  }
 
   state = {
     activeModal: false
-  };
+  }
 
   toggleModal = () => {
-    this.setState({ activeModal: !this.state.activeModal });
-  };
+    this.setState({ activeModal: !this.state.activeModal })
+  }
 
   render() {
-    const { auth, signOut } = this.props;
+    const { auth, signOut } = this.props
 
     return (
       <>
@@ -76,18 +76,17 @@ class Menu extends Component {
         </StyledMenu>
         {this.state.activeModal && <Auth action={this.toggleModal} />}
       </>
-    );
+    )
   }
 }
 
 const mapStateToProps = state => ({
   auth: state.auth
-});
+})
 
-const mapDispatchToProps = dispatch =>
-  bindActionCreators(AuthActions, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators(AuthActions, dispatch)
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Menu);
+)(Menu)

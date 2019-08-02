@@ -1,24 +1,24 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import PropTypes from "prop-types";
-import { bindActionCreators } from "redux";
-import { Flex, Box } from "@rebass/grid";
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
+import { bindActionCreators } from 'redux'
+import { Flex, Box } from '@rebass/grid'
 
-import { Creators as RankingActions } from "../../store/ducks/ranking";
+import { Creators as RankingActions } from '../../store/ducks/ranking'
 
-import RankingRow from "./RankingRow";
-import Title from "../../components/Title";
-import UserCard from "../../components/UserCard";
-import FullPage from "../../components/FullPage";
-import { PageError, PageLoading } from "../../components/utils";
+import RankingRow from './RankingRow'
+import Title from '../../components/Title'
+import UserCard from '../../components/UserCard'
+import FullPage from '../../components/FullPage'
+import { PageError, PageLoading } from '../../components/utils'
 
-import BgRanking from "../../assets/bg_ranking.png";
+import BgRanking from '../../assets/bg_ranking.png'
 import {
   StyledScreenRanking,
   StyledRectangleGroup,
   StyledRectangle,
   RankingHeader
-} from "./styles";
+} from './styles'
 
 class ScreenRanking extends Component {
   static propTypes = {
@@ -30,24 +30,24 @@ class ScreenRanking extends Component {
       firstUsers: PropTypes.array,
       lastUsers: PropTypes.array
     }).isRequired
-  };
+  }
 
   state = {
-    selected: "general"
-  };
+    selected: 'general'
+  }
 
   componentDidMount() {
-    this.props.getRanking();
+    this.props.getRanking()
   }
 
   toggleRanking = selected => {
-    this.setState({ selected });
-    this.props.getRanking(selected);
-  };
+    this.setState({ selected })
+    this.props.getRanking(selected)
+  }
 
   render() {
-    const { selected } = this.state;
-    const { ranking } = this.props;
+    const { selected } = this.state
+    const { ranking } = this.props
     return (
       <StyledScreenRanking>
         <main className="layout">
@@ -78,14 +78,14 @@ class ScreenRanking extends Component {
                 mb={100}>
                 <StyledRectangleGroup>
                   <StyledRectangle
-                    onClick={() => this.toggleRanking("monthly")}
-                    active={selected === "monthly"}
+                    onClick={() => this.toggleRanking('monthly')}
+                    active={selected === 'monthly'}
                     left>
                     <p>Ranking Mensal</p>
                   </StyledRectangle>
                   <StyledRectangle
-                    onClick={() => this.toggleRanking("general")}
-                    active={selected === "general"}
+                    onClick={() => this.toggleRanking('general')}
+                    active={selected === 'general'}
                     right>
                     <p>Ranking Geral</p>
                   </StyledRectangle>
@@ -97,9 +97,9 @@ class ScreenRanking extends Component {
               ) : (
                 <>
                   <Flex justifyContent="center">
-                    <Title align={"center"} extraLarge>
+                    <Title align={'center'} extraLarge>
                       RANKING
-                      {selected === "general" ? (
+                      {selected === 'general' ? (
                         <>
                           <br />
                           <span className="month"> GERAL</span>
@@ -151,17 +151,17 @@ class ScreenRanking extends Component {
           )}
         </main>
       </StyledScreenRanking>
-    );
+    )
   }
 }
 const mapStateToProps = state => ({
   ranking: state.ranking
-});
+})
 
 const mapDispatchToProps = dispatch =>
-  bindActionCreators(RankingActions, dispatch);
+  bindActionCreators(RankingActions, dispatch)
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(ScreenRanking);
+)(ScreenRanking)

@@ -1,6 +1,6 @@
-import React, { Component } from "react";
+import React, { Component } from 'react'
 
-import api from "../../services/api";
+import api from '../../services/api'
 import {
   Wrapper,
   Container,
@@ -8,7 +8,7 @@ import {
   UserInfo,
   ButtonWrapper,
   Button
-} from "./style";
+} from './style'
 
 class UserModal extends Component {
   state = {
@@ -18,55 +18,55 @@ class UserModal extends Component {
     slackUser: null,
     updatedRocketUser: null,
     updatedSlackUser: null
-  };
+  }
 
   componentDidMount() {
-    const { selectRocketUser, selectSlackUser } = this.props.users;
-    selectSlackUser.score = Math.round(selectSlackUser.score);
+    const { selectRocketUser, selectSlackUser } = this.props.users
+    selectSlackUser.score = Math.round(selectSlackUser.score)
     this.setState({
       loading: false,
       rocketUser: selectRocketUser,
       slackUser: selectSlackUser
-    });
+    })
   }
 
   transferScore = async () => {
-    const { rocketUser, slackUser } = this.state;
-    let updatedSlackUser, updatedRocketUser;
+    const { rocketUser, slackUser } = this.state
+    let updatedSlackUser, updatedRocketUser
     try {
       const response = await api.put(`api/v1/edit-score/${rocketUser._id}`, {
-        type: "rocket",
+        type: 'rocket',
         score: slackUser.score
-      });
+      })
       if (response.data) {
-        updatedRocketUser = response.data;
-        updatedSlackUser = await this.resetSlackScore(slackUser._id);
+        updatedRocketUser = response.data
+        updatedSlackUser = await this.resetSlackScore(slackUser._id)
       }
     } catch (error) {
-      console.log(error);
+      console.log(error)
     }
 
     this.setState({
       rocketUser: updatedRocketUser,
       slackUser: updatedSlackUser
-    });
-  };
+    })
+  }
 
   resetSlackScore = async id => {
     try {
       const response = await api.put(`api/v1/edit-score/${id}`, {
-        type: "slack",
+        type: 'slack',
         score: -1
-      });
-      return response.data;
+      })
+      return response.data
     } catch (error) {
-      console.log(error);
+      console.log(error)
     }
-  };
+  }
 
   render() {
-    const { loading, rocketUser, slackUser } = this.state;
-    const { closeModal } = this.props;
+    const { loading, rocketUser, slackUser } = this.state
+    const { closeModal } = this.props
     return (
       <Wrapper>
         {!loading && (
@@ -84,11 +84,11 @@ class UserModal extends Component {
 
                 <ul>
                   <li>
-                    Core Team{" "}
-                    <small>{slackUser.isCoreTeam ? "sim" : "nao"}</small>
+                    Core Team{' '}
+                    <small>{slackUser.isCoreTeam ? 'sim' : 'nao'}</small>
                   </li>
                   <li>
-                    Times{" "}
+                    Times{' '}
                     <small>{slackUser.teams.map(team => team.teams)}</small>
                   </li>
                   <li>
@@ -111,8 +111,8 @@ class UserModal extends Component {
 
                 <ul>
                   <li>
-                    Core Team{" "}
-                    <small>{rocketUser.isCoreTeam ? "sim" : "nao"}</small>
+                    Core Team{' '}
+                    <small>{rocketUser.isCoreTeam ? 'sim' : 'nao'}</small>
                   </li>
                   <li>
                     Usuario <small>{rocketUser.username}</small>
@@ -130,7 +130,7 @@ class UserModal extends Component {
               <Button
                 disabled={slackUser.score === -1}
                 onClick={this.transferScore}>
-                {slackUser.score === -1 ? "sucesso" : "transferir"}
+                {slackUser.score === -1 ? 'sucesso' : 'transferir'}
               </Button>
               <Button onClick={() => closeModal(true)} gray>
                 voltar
@@ -139,8 +139,8 @@ class UserModal extends Component {
           </Container>
         )}
       </Wrapper>
-    );
+    )
   }
 }
 
-export default UserModal;
+export default UserModal

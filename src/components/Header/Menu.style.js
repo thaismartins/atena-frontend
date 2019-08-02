@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import theme from "../../styles/theme";
+import styled from 'styled-components'
+import theme from '../../styles/theme'
 
 const StyledMenu = styled.ul`
   margin: 0;
@@ -10,7 +10,7 @@ const StyledMenu = styled.ul`
   margin: 0 auto;
 
   li + li::before {
-    content: "";
+    content: '';
     display: inline-block;
     width: 4px;
     height: 4px;
@@ -49,7 +49,7 @@ const StyledMenu = styled.ul`
     cursor: pointer;
 
     &::after {
-      content: "";
+      content: '';
       display: block;
       width: 0px;
       height: 3px;
@@ -97,6 +97,6 @@ const StyledMenu = styled.ul`
       }
     }
   }
-`;
+`
 
-export default StyledMenu;
+export default StyledMenu

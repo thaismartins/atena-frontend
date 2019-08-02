@@ -5,19 +5,19 @@ const INITIAL_STATE = {
   teams: [],
   getTeamsLoading: true,
   achievements: {
-    type: "achievements",
+    type: 'achievements',
     error: null,
     loading: true,
     data: null
   },
   missions: {
-    type: "missions",
+    type: 'missions',
     error: null,
     loading: true,
     data: null
   },
   xp: {
-    type: "xp",
+    type: 'xp',
     error: null,
     loading: true,
     data: null
@@ -26,21 +26,21 @@ const INITIAL_STATE = {
     users: null,
     teams: null
   }
-};
+}
 
 export const Types = {
-  GET_USERS: "generalReports/GET_USERS",
-  GET_USERS_SUCCESS: "generalReports/GET_USERS_SUCCESS",
-  GET_USERS_ACHIEVEMENTS: "generalReports/GET_USERS_ACHIEVEMENTS",
-  GET_USERS_ACHIEVEMENTS_RESPONSE: "generalReports/GET_ACHIEVEMENTS_RESPONSE",
-  GET_MISSIONS: "generalReports/GET_MISSIONS",
-  GET_MISSIONS_RESPONSE: "generalReports/GET_MISSIONS_RESPONSE",
-  GET_XP: "generalReports/GET_XP",
-  GET_XP_RESPONSE: "generalReports/GET_XP_RESPONSE",
-  GET_TEAMS: "generalReports/GET_TEAMS",
-  GET_TEAMS_SUCCESS: "generalReports/GET_TEAMS_SUCCESS",
-  REQUEST_FAILURE: "generalReports/REQUEST_FAILURE"
-};
+  GET_USERS: 'generalReports/GET_USERS',
+  GET_USERS_SUCCESS: 'generalReports/GET_USERS_SUCCESS',
+  GET_USERS_ACHIEVEMENTS: 'generalReports/GET_USERS_ACHIEVEMENTS',
+  GET_USERS_ACHIEVEMENTS_RESPONSE: 'generalReports/GET_ACHIEVEMENTS_RESPONSE',
+  GET_MISSIONS: 'generalReports/GET_MISSIONS',
+  GET_MISSIONS_RESPONSE: 'generalReports/GET_MISSIONS_RESPONSE',
+  GET_XP: 'generalReports/GET_XP',
+  GET_XP_RESPONSE: 'generalReports/GET_XP_RESPONSE',
+  GET_TEAMS: 'generalReports/GET_TEAMS',
+  GET_TEAMS_SUCCESS: 'generalReports/GET_TEAMS_SUCCESS',
+  REQUEST_FAILURE: 'generalReports/REQUEST_FAILURE'
+}
 
 export default function generalReports(state = INITIAL_STATE, action) {
   switch (action.type) {
@@ -49,15 +49,15 @@ export default function generalReports(state = INITIAL_STATE, action) {
         ...state,
         getUsersLoading: true,
         errors: Object.assign({}, state.errors, { users: null })
-      };
+      }
     case Types.GET_USERS_SUCCESS:
-      const { users, totalUsers } = action.payload.data;
+      const { users, totalUsers } = action.payload.data
       return {
         ...state,
         getUsersLoading: false,
         users,
         totalUsers
-      };
+      }
     case Types.GET_USERS_ACHIEVEMENTS:
       return {
         ...state,
@@ -65,12 +65,12 @@ export default function generalReports(state = INITIAL_STATE, action) {
           loading: true,
           error: null
         })
-      };
+      }
     case Types.GET_USERS_ACHIEVEMENTS_RESPONSE:
       return {
         ...state,
         achievements: action.payload.data
-      };
+      }
     case Types.GET_MISSIONS:
       return {
         ...state,
@@ -78,31 +78,31 @@ export default function generalReports(state = INITIAL_STATE, action) {
           loading: true,
           error: null
         })
-      };
+      }
     case Types.GET_MISSIONS_RESPONSE:
-      return { ...state, missions: action.payload.data };
+      return { ...state, missions: action.payload.data }
     case Types.GET_XP:
       return {
         ...state,
         xp: Object.assign({}, state.xp, { loading: true, error: null })
-      };
+      }
     case Types.GET_XP_RESPONSE:
-      return { ...state, xp: action.payload.data };
+      return { ...state, xp: action.payload.data }
     case Types.GET_TEAMS:
       return {
         ...state,
         getTeamsLoading: true,
         errors: Object.assign({}, state.errors, { teams: null })
-      };
+      }
     case Types.GET_TEAMS_SUCCESS:
-      return { ...state, teams: action.payload.data, getTeamsLoading: false };
+      return { ...state, teams: action.payload.data, getTeamsLoading: false }
     case Types.REQUEST_FAILURE:
       return {
         ...state,
         errors: Object.assign({}, state.errors, action.payload.data)
-      };
+      }
     default:
-      return state;
+      return state
   }
 }
 
@@ -151,4 +151,4 @@ export const Creators = {
     type: Types.REQUEST_FAILURE,
     payload: { data }
   })
-};
+}

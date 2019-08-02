@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import theme from "../../styles/theme";
+import styled from 'styled-components'
+import theme from '../../styles/theme'
 
 export const Modal = styled.div`
   align-items: center;
@@ -13,7 +13,7 @@ export const Modal = styled.div`
   top: 0;
   width: 100vw;
   z-index: 10;
-`;
+`
 
 export const Container = styled.div`
   flex: 1;
@@ -22,7 +22,7 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-`;
+`
 
 export const Form = styled.form`
   border-radius: 5px;
@@ -68,7 +68,7 @@ export const Form = styled.form`
     margin: 20px auto;
     text-align: center;
   }
-`;
+`
 
 export const Button = styled.button`
   border-radius: 3px;
@@ -86,7 +86,7 @@ export const Button = styled.button`
   &:hover {
     background-color: ${theme.color.primaryHover};
   }
-`;
+`
 
 export const LinkedinButton = styled.div`
   width: 100%;
@@ -116,4 +116,4 @@ export const LinkedinButton = styled.div`
       margin-left: 5px;
     }
   }
-`;
+`

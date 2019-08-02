@@ -1,10 +1,10 @@
-import styled from "styled-components";
-import theme from "../../styles/theme";
+import styled from 'styled-components'
+import theme from '../../styles/theme'
 
 export const Container = styled.div`
   background: ${theme.color.background};
   padding-bottom: 50px;
-`;
+`
 
 export const Header = styled.header`
   align-items: center;
@@ -15,7 +15,7 @@ export const Header = styled.header`
   margin-bottom: 120px;
   text-transform: uppercase;
   width: 100%;
-`;
+`
 
 export const ImageWrapper = styled.div`
   align-items: center;
@@ -57,14 +57,14 @@ export const ImageWrapper = styled.div`
     transform: translateY(275%);
     width: 64px;
   }
-`;
+`
 
 export const UserName = styled.p`
   color: ${theme.color.white};
   font-size: 20px;
   font-weight: bold;
   margin-bottom: 50px;
-`;
+`
 
 export const Info = styled.div`
   color: ${theme.color.white};
@@ -88,7 +88,7 @@ export const Info = styled.div`
       color: ${theme.color.primaryLight};
     }
   }
-`;
+`
 
 export const Title = styled.h1`
   color: ${theme.color.primary};
@@ -96,7 +96,7 @@ export const Title = styled.h1`
   margin-bottom: 50px;
   text-align: center;
   text-transform: uppercase;
-`;
+`
 
 export const Accordion = styled.div`
   background: ${theme.color.white};
@@ -116,7 +116,7 @@ export const Accordion = styled.div`
       color: ${theme.color.secondary};
     }
   }
-`;
+`
 
 export const Icon = styled.i`
   color: ${theme.color.primaryHover};
@@ -129,7 +129,7 @@ export const Icon = styled.i`
           transform: rotate(180deg);`
       : `transition: 0.2s all ease-in;
           transform: rotate(0);`}
-`;
+`
 
 export const AccordionBody = styled.div`
   display: flex;
@@ -152,24 +152,24 @@ export const AccordionBody = styled.div`
         border-top: none;
         visibility: hidden;
         transition: 0.2s all ease;`}
-`;
+`
 
 export const BadgeWrapper = styled.div`
   margin: 0 20px 20px 20px;
   width: 145px;
-`;
+`
 export const Stars = styled.div`
   align-items: center;
   display: flex;
   justify-content: space-between;
   margin: 0 auto;
-`;
+`
 
 export const Star = styled.img`
   height: 25px;
   transform: ${({ align }) => `translateY(${align}%)`};
   width: 25px;
-`;
+`
 
 export const Badge = styled.div`
   align-items: center;
@@ -180,7 +180,7 @@ export const Badge = styled.div`
     margin: 25px auto 8px auto;
     width: 145px;
   }
-`;
+`
 
 export const Score = styled.p`
   color: ${({ color }) => color};
@@ -188,7 +188,7 @@ export const Score = styled.p`
   font-weight: bold;
   margin-bottom: 4px;
   text-align: center;
-`;
+`
 
 export const ScoreBar = styled.div`
   border: 1px solid ${({ color }) => color};
@@ -199,15 +199,15 @@ export const ScoreBar = styled.div`
   width: 100%;
   ::after {
     background: ${({ color }) => color};
-    content: "";
+    content: '';
     display: block;
     height: 100%;
     width: ${({ status }) => status}%;
   }
-`;
+`
 export const Achievement = styled.p`
   color: ${theme.color.gray};
   font-size: 16px;
   font-weight: bold;
   text-align: center;
-`;
+`

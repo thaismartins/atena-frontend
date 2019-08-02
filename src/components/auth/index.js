@@ -1,53 +1,53 @@
-import React, { Component } from "react";
-import { bindActionCreators } from "redux";
-import { connect } from "react-redux";
-import PropTypes from "prop-types";
-import { LinkedIn } from "react-linkedin-login-oauth2";
+import React, { Component } from 'react'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
+import { LinkedIn } from 'react-linkedin-login-oauth2'
 
-import { Creators as AuthActions } from "../../store/ducks/auth";
+import { Creators as AuthActions } from '../../store/ducks/auth'
 
-import { Modal, Form, Button, LinkedinButton } from "./styles";
+import { Modal, Form, Button, LinkedinButton } from './styles'
 
-const clientId = process.env.REACT_APP_LINKEDIN_KEY;
-const callbackUrl = process.env.REACT_APP_LINKEDIN_URL_CALLBACK;
+const clientId = process.env.REACT_APP_LINKEDIN_KEY
+const callbackUrl = process.env.REACT_APP_LINKEDIN_URL_CALLBACK
 
 class Auth extends Component {
   static propTypes = {
     action: PropTypes.func.isRequired,
     signInRequest: PropTypes.func.isRequired,
     signInLinkedinRequest: PropTypes.func.isRequired
-  };
+  }
 
   state = {
-    user: "",
-    password: ""
-  };
+    user: '',
+    password: ''
+  }
 
   handleLinkedinSuccess = data => {
-    const { code } = data;
-    const { signInLinkedinRequest } = this.props;
+    const { code } = data
+    const { signInLinkedinRequest } = this.props
 
-    signInLinkedinRequest({ code });
-  };
+    signInLinkedinRequest({ code })
+  }
 
   handleLinkedinFailure = error => {
     // TODO: send alert error
-  };
+  }
 
   handleSubmit = event => {
-    event.preventDefault();
-    const { user, password } = this.state;
-    const { signInRequest } = this.props;
+    event.preventDefault()
+    const { user, password } = this.state
+    const { signInRequest } = this.props
 
-    signInRequest({ user, password });
-  };
+    signInRequest({ user, password })
+  }
 
   handleInputChange = event => {
-    this.setState({ [event.target.name]: event.target.value });
-  };
+    this.setState({ [event.target.name]: event.target.value })
+  }
 
   render() {
-    const { user, password } = this.state;
+    const { user, password } = this.state
 
     return (
       <Modal onClick={this.props.action}>
@@ -77,20 +77,19 @@ class Auth extends Component {
               onSuccess={this.handleLinkedinSuccess}
               redirectUri={callbackUrl}
               scope="r_liteprofile">
-              Logar com{" "}
+              Logar com{' '}
               <img src="/linkedin-icon.png" alt="Linkedin" title="Linkedin" />
             </LinkedIn>
           </LinkedinButton>
         </Form>
       </Modal>
-    );
+    )
   }
 }
 
-const mapDispatchToProps = dispatch =>
-  bindActionCreators(AuthActions, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators(AuthActions, dispatch)
 
 export default connect(
   null,
   mapDispatchToProps
-)(Auth);
+)(Auth)

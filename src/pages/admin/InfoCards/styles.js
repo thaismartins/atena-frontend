@@ -1,13 +1,13 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
-import theme from "../../../styles/theme";
+import theme from '../../../styles/theme'
 
 export const Container = styled.div`
   display: flex;
   height: 410px;
   margin: 60px 0 30px 0;
   width: 100%;
-`;
+`
 
 export const CardsWrapper = styled.div`
   flex: 1;
@@ -21,7 +21,7 @@ export const CardsWrapper = styled.div`
     margin-bottom: 30px;
     text-transform: uppercase;
   }
-`;
+`
 
 export const Card = styled.div`
   background: ${theme.color.white};
@@ -55,10 +55,10 @@ export const Card = styled.div`
     top: 13px;
     width: 85px;
   }
-`;
+`
 export const Percentage = styled.span`
   color: ${props =>
     props.positive ? theme.color.green : theme.color.secondary};
   font-weight: bold;
   margin-left: 3px;
-`;
+`

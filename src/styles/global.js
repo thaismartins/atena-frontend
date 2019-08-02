@@ -1,16 +1,16 @@
-import { createGlobalStyle } from "styled-components";
-import styledNormalize from "styled-normalize";
-import "react-toastify/dist/ReactToastify.css";
-import theme from "./theme";
+import { createGlobalStyle } from 'styled-components'
+import styledNormalize from 'styled-normalize'
+import 'react-toastify/dist/ReactToastify.css'
+import theme from './theme'
 
 const StyledApp = createGlobalStyle`
   @font-face{
       font-family: "proxima-nova";
-      src: url(${require("../assets/fonts/ProximaNova-Regular.woff")});
-      src: url(${require("../assets/fonts/ProximaNova-Regular.eot")}?#iefix) format("embedded-opentype"),
-            url(${require("../assets/fonts/ProximaNova-Regular.woff")}) format("woff"),
-            url(${require("../assets/fonts/ProximaNova-Regular.ttf")}) format("truetype"),
-            url(${require("../assets/fonts/ProximaNova-Regular.svg")}#proxima-nova) format("svg");
+      src: url(${require('../assets/fonts/ProximaNova-Regular.woff')});
+      src: url(${require('../assets/fonts/ProximaNova-Regular.eot')}?#iefix) format("embedded-opentype"),
+            url(${require('../assets/fonts/ProximaNova-Regular.woff')}) format("woff"),
+            url(${require('../assets/fonts/ProximaNova-Regular.ttf')}) format("truetype"),
+            url(${require('../assets/fonts/ProximaNova-Regular.svg')}#proxima-nova) format("svg");
 
       font-style: normal;
       font-weight: normal;
@@ -97,6 +97,6 @@ const StyledApp = createGlobalStyle`
       display: none !important;
     }
   }
-`;
+`
 
-export default StyledApp;
+export default StyledApp

@@ -1,7 +1,7 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { StyledRankingRow } from "./style";
-import avatarSvg from "../../../assets/avatar.svg";
+import React from 'react'
+import PropTypes from 'prop-types'
+import { StyledRankingRow } from './style'
+import avatarSvg from '../../../assets/avatar.svg'
 
 const RankingRow = ({ position, name, avatar, level, xp }) => (
   <StyledRankingRow>
@@ -12,8 +12,8 @@ const RankingRow = ({ position, name, avatar, level, xp }) => (
           src={avatar}
           alt=""
           onError={e => {
-            e.target.onerror = null;
-            e.target.src = avatarSvg;
+            e.target.onerror = null
+            e.target.src = avatarSvg
           }}
         />
       ) : (
@@ -24,7 +24,7 @@ const RankingRow = ({ position, name, avatar, level, xp }) => (
     <div className="level">{level}</div>
     <div className="xp">{xp}</div>
   </StyledRankingRow>
-);
+)
 
 RankingRow.propTypes = {
   position: PropTypes.number.isRequired,
@@ -32,6 +32,6 @@ RankingRow.propTypes = {
   avatar: PropTypes.string.isRequired,
   level: PropTypes.number.isRequired,
   xp: PropTypes.number.isRequired
-};
+}
 
-export default RankingRow;
+export default RankingRow

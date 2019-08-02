@@ -1,12 +1,12 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { Formik } from "formik";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import { Formik } from 'formik'
+import DatePicker from 'react-datepicker'
+import 'react-datepicker/dist/react-datepicker.css'
 
-import { Creators as achievementsActions } from "../../../store/ducks/achievements";
-import { bindActionCreators } from "redux";
-import { connect } from "react-redux";
+import { Creators as achievementsActions } from '../../../store/ducks/achievements'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
 
 import {
   StyledForm,
@@ -19,133 +19,133 @@ import {
   Card,
   Title,
   Button
-} from "./styles";
+} from './styles'
 
 class CreateAchievements extends Component {
   static propTypes = {
     getAchievements: PropTypes.func.isRequired,
     achievements: PropTypes.object.isRequired,
     achievementsValues: PropTypes.array
-  };
+  }
 
   state = {
     startDate: null,
     endDate: null,
     limitDate: null,
     achievementTypeOptions: [
-      { value: "permanent", label: "Permanente", isDisabled: true },
-      { value: "temporary", label: "Temporária" }
+      { value: 'permanent', label: 'Permanente', isDisabled: true },
+      { value: 'temporary', label: 'Temporária' }
     ],
     category: [
-      { value: "rocketchat", label: "RocketChat" },
-      { value: "github", label: "Github" }
+      { value: 'rocketchat', label: 'RocketChat' },
+      { value: 'github', label: 'Github' }
     ],
     activity: [
-      { value: "Mensagens Enviadas", label: "Mensagens Enviadas" },
-      { value: "Reactions Dados", label: "Reactions Dados" },
-      { value: "Reactions Recebidos", label: "Reactions Recebidos" }
+      { value: 'Mensagens Enviadas', label: 'Mensagens Enviadas' },
+      { value: 'Reactions Dados', label: 'Reactions Dados' },
+      { value: 'Reactions Recebidos', label: 'Reactions Recebidos' }
     ],
     achievement: [
       {
-        name: "bronze",
+        name: 'bronze',
         tiers: [
-          { name: "I", value: 1500 },
-          { name: "II", value: 1600 },
-          { name: "III", value: 1700 },
-          { name: "IV", value: 1800 },
-          { name: "V", value: 2000 }
+          { name: 'I', value: 1500 },
+          { name: 'II', value: 1600 },
+          { name: 'III', value: 1700 },
+          { name: 'IV', value: 1800 },
+          { name: 'V', value: 2000 }
         ]
       },
       {
-        name: "silver",
+        name: 'silver',
         tiers: [
-          { name: "I", value: 1500 },
-          { name: "II", value: 1600 },
-          { name: "III", value: 1700 },
-          { name: "IV", value: 1800 },
-          { name: "V", value: 2000 }
+          { name: 'I', value: 1500 },
+          { name: 'II', value: 1600 },
+          { name: 'III', value: 1700 },
+          { name: 'IV', value: 1800 },
+          { name: 'V', value: 2000 }
         ]
       },
       {
-        name: "gold",
+        name: 'gold',
         tiers: [
-          { name: "I", value: 1500 },
-          { name: "II", value: 1600 },
-          { name: "III", value: 1700 },
-          { name: "IV", value: 1800 },
-          { name: "V", value: 2000 }
+          { name: 'I', value: 1500 },
+          { name: 'II', value: 1600 },
+          { name: 'III', value: 1700 },
+          { name: 'IV', value: 1800 },
+          { name: 'V', value: 2000 }
         ]
       },
       {
-        name: "platinum",
+        name: 'platinum',
         tiers: [
-          { name: "I", value: 1500 },
-          { name: "II", value: 1600 },
-          { name: "III", value: 1700 },
-          { name: "IV", value: 1800 },
-          { name: "V", value: 2000 }
+          { name: 'I', value: 1500 },
+          { name: 'II', value: 1600 },
+          { name: 'III', value: 1700 },
+          { name: 'IV', value: 1800 },
+          { name: 'V', value: 2000 }
         ]
       },
       {
-        name: "diamond",
+        name: 'diamond',
         tiers: [
-          { name: "I", value: 1500 },
-          { name: "II", value: 1600 },
-          { name: "III", value: 1700 },
-          { name: "IV", value: 1800 },
-          { name: "V", value: 2000 }
+          { name: 'I', value: 1500 },
+          { name: 'II', value: 1600 },
+          { name: 'III', value: 1700 },
+          { name: 'IV', value: 1800 },
+          { name: 'V', value: 2000 }
         ]
       }
     ]
-  };
+  }
 
   componentDidMount() {
-    this.props.getAchievements();
+    this.props.getAchievements()
   }
   handleCategoryChange = event => {
-    console.tron.log(event.target.value);
-  };
+    console.tron.log(event.target.value)
+  }
   handleActivityChange = event => {
-    console.tron.log(event.target.value);
-  };
+    console.tron.log(event.target.value)
+  }
 
   handleChangeStart = date => {
     this.setState({
       startDate: date
-    });
-  };
+    })
+  }
 
   handleChangeEnd = date => {
     this.setState({
       endDate: date
-    });
-  };
+    })
+  }
 
   handleChangeLimit = date => {
     this.setState({
       limitDate: date
-    });
-  };
+    })
+  }
   getValues = () => {
-    const { achievement } = this.state;
-    let tiers = {};
+    const { achievement } = this.state
+    let tiers = {}
     achievement.forEach(value =>
       value.tiers.forEach(tier => {
-        Object.assign(tiers, { [`${value.name}-${tier.name}`]: tier.value });
+        Object.assign(tiers, { [`${value.name}-${tier.name}`]: tier.value })
       })
-    );
-    return tiers;
-  };
+    )
+    return tiers
+  }
 
-  validateTier = value => (!value || value <= 0 ? true : null);
+  validateTier = value => (!value || value <= 0 ? true : null)
 
   handleSubmit = (values, actions) => {
-    actions.setSubmitting(false);
-    console.tron.log(values);
-  };
+    actions.setSubmitting(false)
+    console.tron.log(values)
+  }
 
   render() {
-    const { achievement } = this.state;
+    const { achievement } = this.state
     return (
       <Formik
         onSubmit={(values, actions) => this.handleSubmit(values, actions)}
@@ -159,7 +159,7 @@ class CreateAchievements extends Component {
               placeholder="Selecione..."
               name="achievementType"
               options={this.state.achievementTypeOptions}
-              onChange={value => setFieldValue("achievementType", value.value)}
+              onChange={value => setFieldValue('achievementType', value.value)}
             />
 
             <p>Categoria</p>
@@ -167,7 +167,7 @@ class CreateAchievements extends Component {
               placeholder="Selecione..."
               name="category"
               options={this.state.category}
-              onChange={value => setFieldValue("category", value.value)}
+              onChange={value => setFieldValue('category', value.value)}
             />
 
             <p>Atividade</p>
@@ -175,7 +175,7 @@ class CreateAchievements extends Component {
               placeholder="Selecione..."
               name="activity"
               options={this.state.activity}
-              onChange={value => setFieldValue("activity", value.value)}
+              onChange={value => setFieldValue('activity', value.value)}
             />
 
             <p>Nome da conquista</p>
@@ -199,8 +199,8 @@ class CreateAchievements extends Component {
                   startDate={this.state.startDate}
                   endDate={this.state.endDate}
                   onChange={data => {
-                    this.handleChangeStart(data);
-                    setFieldValue("initialDate", data);
+                    this.handleChangeStart(data)
+                    setFieldValue('initialDate', data)
                   }}
                 />
               </Box>
@@ -218,8 +218,8 @@ class CreateAchievements extends Component {
                   startDate={this.state.startDate}
                   endDate={this.state.endDate}
                   onChange={data => {
-                    this.handleChangeEnd(data);
-                    setFieldValue("finalDate", data);
+                    this.handleChangeEnd(data)
+                    setFieldValue('finalDate', data)
                   }}
                 />
               </Box>
@@ -234,8 +234,8 @@ class CreateAchievements extends Component {
                   dateFormat="dd/MM/yyyy"
                   selected={this.state.limitDate}
                   onChange={data => {
-                    this.handleChangeLimit(data);
-                    setFieldValue("limitDate", data);
+                    this.handleChangeLimit(data)
+                    setFieldValue('limitDate', data)
                   }}
                 />
               </Box>
@@ -249,7 +249,7 @@ class CreateAchievements extends Component {
                   <div>
                     <ul>
                       {value.tiers.map((tier, index) => {
-                        const tierName = `${value.name}-${tier.name}`;
+                        const tierName = `${value.name}-${tier.name}`
                         return (
                           <li key={index}>
                             <p>{tier.name}</p>
@@ -261,7 +261,7 @@ class CreateAchievements extends Component {
                               error={errors[tierName] && touched[tierName]}
                             />
                           </li>
-                        );
+                        )
                       })}
                     </ul>
                   </div>
@@ -272,16 +272,16 @@ class CreateAchievements extends Component {
           </StyledForm>
         )}
       </Formik>
-    );
+    )
   }
 }
 
-const mapStateToProps = state => ({ achievements: state.achievements });
+const mapStateToProps = state => ({ achievements: state.achievements })
 
 const mapDispatchToProps = dispatch =>
-  bindActionCreators(achievementsActions, dispatch);
+  bindActionCreators(achievementsActions, dispatch)
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(CreateAchievements);
+)(CreateAchievements)

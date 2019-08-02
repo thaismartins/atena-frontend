@@ -1,12 +1,12 @@
-import React from "react";
+import React from 'react'
 // import PropTypes from "prop-types";
-import StyledTitle from "./style";
+import StyledTitle from './style'
 
 const Title = ({ children, extraLarge, width, align, ...others }) => (
   <StyledTitle extraLarge={extraLarge} width={width} align={align} {...others}>
     {children}
   </StyledTitle>
-);
+)
 
 // Title.propTypes = {
 //   children: PropTypes.array.isRequired,
@@ -21,4 +21,4 @@ const Title = ({ children, extraLarge, width, align, ...others }) => (
 //   align: "left"
 // };
 
-export default Title;
+export default Title

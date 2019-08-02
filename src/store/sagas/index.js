@@ -1,19 +1,19 @@
-import { all, takeLatest } from "redux-saga/effects";
+import { all, takeLatest } from 'redux-saga/effects'
 
-import { Types as RankingTypes } from "../ducks/ranking";
-import { Types as AuthTypes } from "../ducks/auth";
-import { Types as GeneralReportsTypes } from "../ducks/generalReports";
-import { Types as ExperienceCardTypes } from "../ducks/experienceCard";
-import { Types as achievementsTypes } from "../ducks/achievements";
+import { Types as RankingTypes } from '../ducks/ranking'
+import { Types as AuthTypes } from '../ducks/auth'
+import { Types as GeneralReportsTypes } from '../ducks/generalReports'
+import { Types as ExperienceCardTypes } from '../ducks/experienceCard'
+import { Types as achievementsTypes } from '../ducks/achievements'
 
-import { getRanking, getUserInfo } from "./ranking";
+import { getRanking, getUserInfo } from './ranking'
 import {
   signIn,
   signInLinkedin,
   signInSuccess,
   signInFailure,
   logout
-} from "./auth";
+} from './auth'
 
 import {
   getUsers,
@@ -21,14 +21,14 @@ import {
   getMissions,
   getXp,
   getTeams
-} from "./generalReports";
-import { getExperience, putExperience } from "./experienceCard";
+} from './generalReports'
+import { getExperience, putExperience } from './experienceCard'
 import {
   getAchievements,
   getUserAchievements,
   editAchievement,
   createAchievement
-} from "./achievements";
+} from './achievements'
 
 export default function* rootSaga() {
   yield all([
@@ -53,5 +53,5 @@ export default function* rootSaga() {
     takeLatest(achievementsTypes.EDIT_ACHIEVEMENT, editAchievement),
     takeLatest(achievementsTypes.CREATE_ACHIEVEMENT, createAchievement),
     takeLatest(achievementsTypes.GET_USER_ACHIEVEMENTS, getUserAchievements)
-  ]);
+  ])
 }

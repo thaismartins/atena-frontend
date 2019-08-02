@@ -1,10 +1,10 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 
-import { bindActionCreators } from "redux";
-import { connect } from "react-redux";
-import { Creators as GeneralReportsActions } from "../../../store/ducks/generalReports";
-import { SmallError, PageLoading } from "../../../components/utils";
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+import { Creators as GeneralReportsActions } from '../../../store/ducks/generalReports'
+import { SmallError, PageLoading } from '../../../components/utils'
 import {
   Container,
   AccordionWrapper,
@@ -13,7 +13,7 @@ import {
   Box,
   Card,
   Icon
-} from "./styles";
+} from './styles'
 
 class TeamAccordion extends Component {
   static propTypes = {
@@ -35,38 +35,38 @@ class TeamAccordion extends Component {
         })
       )
     }).isRequired
-  };
+  }
 
   state = {
     active: null
-  };
+  }
 
   handleClick = index => {
-    this.setState({ active: index === this.state.active ? null : index });
-  };
+    this.setState({ active: index === this.state.active ? null : index })
+  }
 
   componentDidMount() {
-    const { teams } = this.props.generalReports;
-    teams.length === 0 && this.props.getTeams();
+    const { teams } = this.props.generalReports
+    teams.length === 0 && this.props.getTeams()
   }
 
   render() {
-    const { active } = this.state;
-    const { teams, getTeamsLoading, errors } = this.props.generalReports;
+    const { active } = this.state
+    const { teams, getTeamsLoading, errors } = this.props.generalReports
 
     if (errors.teams)
       return (
         <Container>
           <SmallError refresh={this.props.getTeams} message={errors.teams} />
         </Container>
-      );
+      )
 
     if (getTeamsLoading)
       return (
         <Container>
           <PageLoading message={errors.team} />
         </Container>
-      );
+      )
     return (
       <Container>
         {teams.map((team, index) => {
@@ -80,7 +80,7 @@ class TeamAccordion extends Component {
             github,
             meetups,
             referral
-          } = team;
+          } = team
           return (
             <AccordionWrapper
               onClick={() => this.handleClick(index)}
@@ -196,19 +196,19 @@ class TeamAccordion extends Component {
                 </Box>
               </Wrapper>
             </AccordionWrapper>
-          );
+          )
         })}
       </Container>
-    );
+    )
   }
 }
 
-const mapStateToProps = state => ({ generalReports: state.generalReports });
+const mapStateToProps = state => ({ generalReports: state.generalReports })
 
 const mapDispatchToProps = dispatch =>
-  bindActionCreators(GeneralReportsActions, dispatch);
+  bindActionCreators(GeneralReportsActions, dispatch)
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(TeamAccordion);
+)(TeamAccordion)
